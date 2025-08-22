@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Makam Study</title>
+    <style>
+        table {
+            width: 30%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Makam</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Note Name</th>
+                <th>Comma</th>
+                <th>Interval</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in g.table_data %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.comma }}</td>
+                <td>{{ row.interval }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

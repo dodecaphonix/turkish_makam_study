@@ -1,4 +1,8 @@
-from flask import Flask
+from flask import (
+    Flask,
+    g,
+    render_template,
+)
 
 from makam import generate_test_makam
 
@@ -7,11 +11,9 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    response = ""
-    for interval, comma, name in generate_test_makam():
-        response += f"{interval:>3} {comma:>3} {name}<br>"
-    return f"<pre>{response}</pre>"
+def index():
+    g.table_data = generate_test_makam()
+    return render_template("index.html")
 
 
 if __name__ == '__main__':

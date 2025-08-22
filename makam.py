@@ -44,11 +44,14 @@ def generate_test_makam():
     for comma in range(LARGEST_NOTE_COMMA, -1, -1):
         name = COMMA_TO_NOTE_NAME.get(comma, "")
         interval = COMMA_TO_INTERVAL.get((comma - NOTE_NAME_TO_COMMA[tonic]) % COMMAS_PER_OCTAVE, "") if comma in commas else ""
-        return_data.append((interval, comma, name))
+        return_data.append({"interval": interval, "comma": comma, "name": name})
+
+    # TODO: Very soon it will be time to model all of this correctly. Names and commas are basically static.
+    #  We really just need to return a variable length array of tetrachords and pentachords
 
     return return_data
 
 
 if __name__ == "__main__":
-    for interval, comma, name in generate_test_makam():
-        print(f"{interval:>3} {comma:>3} {name}")
+    for row in generate_test_makam():
+        print(f"{row['interval']:>3} {row['comma']:>3} {row['name']}")
