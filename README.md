@@ -10,12 +10,21 @@ poetry install
 
 ## Run project
 
-Use Poetry to run project in a virtual environment
+### With a terminal UI:
+
+Use Poetry to run project in a virtual environment:
 ```
 poetry run python makam.py
 ```
 
-Current output:
+### With a web UI:
+
+Use Poetry to run webserver in a virtual environment:
+```
+poetry run python app.py
+```
+
+###Current output:
 ```
     106 Tîz Çârgâh
     105 Tîz Dik Bûselik

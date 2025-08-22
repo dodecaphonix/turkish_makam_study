@@ -1,4 +1,4 @@
-DIVISIONS_OF_OCTAVE = 53
+COMMAS_PER_OCTAVE = 53
 
 COMMA_TO_NOTE_NAME = {
     0: 'Kaba Çârgâh',

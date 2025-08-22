@@ -1,7 +1,7 @@
 from constants import (
     COMMA_TO_NOTE_NAME,
     COMMA_TO_INTERVAL,
-    DIVISIONS_OF_OCTAVE,
+    COMMAS_PER_OCTAVE,
     INTERVAL_TO_COMMA,
     LARGEST_NOTE_COMMA,
     NOTE_NAME_TO_COMMA,
@@ -28,7 +28,7 @@ def intervals_to_commas(tetrachord_name, starting_pitch):
     return [INTERVAL_TO_COMMA[interval_name] + starting_comma for interval_name in interval_names]
 
 
-if __name__ == "__main__":
+def generate_test_makam():
     tonic = "Dügâh"
     Uşşâk_makam = [
         {"tetrachord_name": "Uşşâk", "starting_pitch": "Dügâh"},
@@ -39,7 +39,16 @@ if __name__ == "__main__":
     for tetrachord in Uşşâk_makam:
         commas += intervals_to_commas(**tetrachord)
 
-    for i in range(LARGEST_NOTE_COMMA, -1, -1):
-        name = COMMA_TO_NOTE_NAME.get(i, "")
-        interval = COMMA_TO_INTERVAL.get((i - NOTE_NAME_TO_COMMA[tonic]) % DIVISIONS_OF_OCTAVE, "") if i in commas else ""
-        print(f"{interval:>3} {i:>3} {name}")
+    return_data = []
+
+    for comma in range(LARGEST_NOTE_COMMA, -1, -1):
+        name = COMMA_TO_NOTE_NAME.get(comma, "")
+        interval = COMMA_TO_INTERVAL.get((comma - NOTE_NAME_TO_COMMA[tonic]) % COMMAS_PER_OCTAVE, "") if comma in commas else ""
+        return_data.append((interval, comma, name))
+
+    return return_data
+
+
+if __name__ == "__main__":
+    for interval, comma, name in generate_test_makam():
+        print(f"{interval:>3} {comma:>3} {name}")
