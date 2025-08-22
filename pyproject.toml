@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "turkish-makam-study"
+version = "0.1.0"
+description = ""
+authors = ["dodecaphonix <dodecaphonix@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"

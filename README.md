@@ -1,4 +1,21 @@
-# Current output:
+# Explore and display Turkish makams
+
+## Install virtual env
+Prerequisite: Install [Poetry](https://python-poetry.org/docs/) for dependency management
+
+Crate a virtual environment with:
+```
+poetry install
+```
+
+## Run project
+
+Use Poetry to run project in a virtual environment
+```
+poetry run python makam.py
+```
+
+Current output:
 ```
     106 Tîz Çârgâh
     105 Tîz Dik Bûselik
