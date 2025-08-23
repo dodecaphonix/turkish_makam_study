@@ -12,7 +12,9 @@ poetry install
 
 ## Run project
 
-To spin up the web UI, use Poetry to run webserver from within a virtual environment:
+To view the web UI, use Poetry to spin up the webserver from within a virtual environment:
 ```
 poetry run python app.py
 ```
+
+Then, navigate to http://127.0.0.1:5000 in a web browser.
