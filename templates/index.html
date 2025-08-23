@@ -33,7 +33,7 @@
         </thead>
         <tbody>
             {% for i in range(g.total_commas, -1, -1) %}
-            <tr {% if i in g.fundamental_pitch_commas %} style="background-color:#f0eeff;" {% endif %} >
+            <tr {% if i % 53 in g.fundamental_pitch_commas %} style="background-color:#f0eeff;" {% endif %} >
                 <td>{{ g.note_names[i] }}</td>
                 <td>{{ i }}</td>
                 <td>{{ g.makam_data["absolute_intervals"][i] }}</td>

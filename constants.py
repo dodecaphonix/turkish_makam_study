@@ -9,26 +9,6 @@ AJINAS = {
     "Rast": ["R", "M2", "vM3", "4", "5"],  # Major with microtonal 3
 }
 
-# See https://www.turkishudlessons.com/pitch-perde for more info
-CANTEMIR_PITCH_COLLECTION = [
-    "Yegâh",
-    "Hüseynî Aşîrân",
-    "Irak",
-    "Rast",
-    "Dügâh",
-    "Segâh",
-    "Çârgâh",
-    "Nevâ",
-    "Hüseynî",
-    "Eviç",
-    "Gerdâniye",
-    "Muhayyer",
-    "Tîz Segâh",
-    "Tîz Çârgâh",
-    "Tîz Nevâ",  # I don't have this in COMMA_TO_NOTE_NAME yet
-    "Tîz Hüseynî",  # I don't have this in COMMA_TO_NOTE_NAME yet
-]
-
 COMMA_TO_NOTE_NAME = {
     0: 'Kaba Çârgâh',
     4: 'Kaba Nim Hicâz',
@@ -110,6 +90,16 @@ COMMA_TO_INTERVAL = {
 
 NOTE_NAME_TO_COMMA = {v: k for k, v in COMMA_TO_NOTE_NAME.items()}
 INTERVAL_TO_COMMA = {v: k for k, v in COMMA_TO_INTERVAL.items()}
-COMMAS_OF_FUNDAMENTAL_PITCHES = [k for k, v in COMMA_TO_NOTE_NAME.items() if v in CANTEMIR_PITCH_COLLECTION]
 
 TOTAL_COMMAS = max(COMMA_TO_NOTE_NAME.keys())
+
+# This is a just intonation major scale with the 3rd and 7th lowered by a comma
+FUNDAMENTAL_INTERVALS = ["R", "M2", "vM3", "4", "5", "M6", "vM7"]
+# These are the commas of the very accurate 53EDO approximation of the just major scale used in Turkish music
+COMMAS_OF_FUNDAMENTAL_INTERVALS = [k for k, v in COMMA_TO_INTERVAL.items() if v in FUNDAMENTAL_INTERVALS]
+# It we start on Rast, we have one octave of the Cantemir pitch collection
+# See https://www.turkishudlessons.com/pitch-perde for more info
+COMMAS_OF_FUNDAMENTAL_PITCHES = [
+    (comma + NOTE_NAME_TO_COMMA["Rast"]) % COMMAS_PER_OCTAVE
+    for comma in COMMAS_OF_FUNDAMENTAL_INTERVALS
+]
