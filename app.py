@@ -8,7 +8,7 @@ from constants import (
     COMMA_TO_NOTE_NAME,
     TOTAL_COMMAS,
 )
-from makam import hydrate_intervals_for_makam
+from interval_calculator import hydrate_intervals_for_makam
 from makam_db import MAKAMS
 
 app = Flask(__name__)
