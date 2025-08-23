@@ -33,14 +33,13 @@
         </thead>
         <tbody>
             {% for i in range(g.total_commas, -1, -1) %}
-            <tr>
+            <tr {% if i in g.fundamental_pitch_commas %} style="background-color:#f0eeff;" {% endif %} >
                 <td>{{ g.note_names[i] }}</td>
                 <td>{{ i }}</td>
                 <td>{{ g.makam_data["absolute_intervals"][i] }}</td>
                 {% for jins in g.makam_data["ajnas"] %}
                 <td>{{ jins["intervals"][i] }}</td>
                 {% endfor %}
-
             </tr>
             {% endfor %}
         </tbody>

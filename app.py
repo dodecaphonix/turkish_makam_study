@@ -7,6 +7,7 @@ from flask import (
 from constants import (
     COMMA_TO_NOTE_NAME,
     TOTAL_COMMAS,
+    COMMAS_OF_FUNDAMENTAL_PITCHES,
 )
 from interval_calculator import hydrate_intervals_for_makam
 from makam_db import MAKAMS
@@ -19,6 +20,7 @@ def index():
     # Only one hardcoded makam for now
     makam_name = "Uşşâk"
     g.note_names = COMMA_TO_NOTE_NAME
+    g.fundamental_pitch_commas = COMMAS_OF_FUNDAMENTAL_PITCHES
     g.total_commas = TOTAL_COMMAS
     g.makam_name = makam_name
     g.makam_data = hydrate_intervals_for_makam(makam=MAKAMS[makam_name])

@@ -9,6 +9,26 @@ AJINAS = {
     "Rast": ["R", "M2", "vM3", "4", "5"],  # Major with microtonal 3
 }
 
+# See https://www.turkishudlessons.com/pitch-perde for more info
+CANTEMIR_PITCH_COLLECTION = [
+    "Yegâh",
+    "Hüseynî Aşîrân",
+    "Irak",
+    "Rast",
+    "Dügâh",
+    "Segâh",
+    "Çârgâh",
+    "Nevâ",
+    "Hüseynî",
+    "Eviç",
+    "Gerdâniye",
+    "Muhayyer",
+    "Tîz Segâh",
+    "Tîz Çârgâh",
+    "Tîz Nevâ",  # I don't have this in COMMA_TO_NOTE_NAME yet
+    "Tîz Hüseynî",  # I don't have this in COMMA_TO_NOTE_NAME yet
+]
+
 COMMA_TO_NOTE_NAME = {
     0: 'Kaba Çârgâh',
     4: 'Kaba Nim Hicâz',
@@ -90,5 +110,6 @@ COMMA_TO_INTERVAL = {
 
 NOTE_NAME_TO_COMMA = {v: k for k, v in COMMA_TO_NOTE_NAME.items()}
 INTERVAL_TO_COMMA = {v: k for k, v in COMMA_TO_INTERVAL.items()}
+COMMAS_OF_FUNDAMENTAL_PITCHES = [k for k, v in COMMA_TO_NOTE_NAME.items() if v in CANTEMIR_PITCH_COLLECTION]
 
 TOTAL_COMMAS = max(COMMA_TO_NOTE_NAME.keys())
