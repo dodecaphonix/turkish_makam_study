@@ -2,6 +2,7 @@ from flask import (
     Flask,
     g,
     render_template,
+    request,
 )
 
 from constants import (
@@ -17,8 +18,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Only one hardcoded makam for now
-    makam_name = "Uşşâk"
+    makam_name = request.args.get('makam', default='Rast', type=str)
+    g.all_makams = MAKAMS.keys()
     g.note_names = COMMA_TO_NOTE_NAME
     g.fundamental_pitch_commas = COMMAS_OF_FUNDAMENTAL_PITCHES
     g.total_commas = TOTAL_COMMAS

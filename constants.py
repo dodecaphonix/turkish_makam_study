@@ -1,12 +1,12 @@
 COMMAS_PER_OCTAVE = 53
 
 AJINAS = {
-    "Çârgâh": ["R", "M2", "M3", "4", "5"],  # Major
-    "Bûselik": ["R", "M2", "m3", "4", "5"],  # Minor
-    "Kürdî": ["R", "m2", "m3", "4", "5"],  # Phrygian
-    "Uşşâk": ["R", "vM2", "m3", "4", "5"],  # Minor with microtonal 2
-    "Hicaz": ["R", "^m2", "vM3", "4", "5"],  # Phrygian Dominant with microtonal 2, 3
-    "Rast": ["R", "M2", "vM3", "4", "5"],  # Major with microtonal 3
+    "Çârgâh": ["R", "M2", "M3", "4", "5"],  # Major - Pythagorean tuning
+    "Bûselik": ["R", "M2", "m3", "4", "5"],  # Minor - Pythagorean tuning
+    "Kürdî": ["R", "m2", "m3", "4", "5"],  # Phrygian - Pythagorean tuning
+    "Uşşâk": ["R", "vM2", "m3", "4", "5"],  # Minor - Pythagorean tuning with microtonal maj 2
+    "Hicaz": ["R", "^m2", "vM3", "4", "5"],  # Phrygian Dominant - Just tuning with microtonal min 2
+    "Rast": ["R", "M2", "vM3", "4", "5"],  # Major - Just tuning
 }
 
 COMMA_TO_NOTE_NAME = {

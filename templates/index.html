@@ -15,11 +15,22 @@
         th {
             background-color: #f2f2f2;
         }
+        form {
+            padding-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>{{ g.makam_name }}</h1>
-    <h3>Tonic: {{ g.makam_data["tonic"] }}</h3>
+    <p>Tonic: {{ g.makam_data["tonic"] }}</p>
+    <form action="/">
+      <label for="makam">Choose another makam:</label>
+      <select name="makam" id="makam" onchange='this.form.submit();'>
+        {% for makam in g.all_makams %}
+          <option value={{ makam }} {% if makam == g.makam_name %} selected="selected" {% endif %} >{{ makam }}</option>
+        {% endfor %}
+      </select>
+    </form>
     <table>
         <thead>
             <tr>
