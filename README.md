@@ -59,7 +59,7 @@ PR       M2       M3  P4       P5       M6       M7  PR
  R--------2--------3---4--------5--------6--------7---R
 ```
 
-Let's use the 9,4 rule to find a Minor 3rd, then compare to Major. We can see that chromatic alterations are 5 commas rather than the 4:
+Let's use the 9,4 rule to find a Minor 3rd, then compare to Major. We can see that semitones acting as chromatic alterations are 5 commas rather than the 4:
 ```
 PR       M2  m3       P4
  R--------2---3--------4 ...
@@ -77,7 +77,7 @@ PR  m2   M2  m3   M3  P4       P5  m6   M6  m7   M7  PR
 ```
 But what about the Just intervals like the 5:4 major 3rd, or the 6:5 minor third? That's a good question. I'm glad you asked...
 
-In 53EDO, one comma is very close to the syntonic comma. The remaining justly tuned intervals are one comma away from their Pythagorean counterparts. Simply raise minor intervals by a comma and lower major intervals by a comma.
+In 53EDO, one comma is very close to the syntonic comma. The remaining justly tuned intervals are one comma away from their Pythagorean counterparts. Simply raise minor intervals by a comma and lower major intervals by a comma:
 ```
  PR  m2   M2  m3   M3  P4       P5  m6   M6  m7   M7  PR
  R---2----2---3----3---4--------5---6----6---7----7---R
@@ -100,7 +100,7 @@ Let's see how some common ajinas line up:
  R   -2  --   --  3-   4    Hicaz = Phrygian Dominant with ^m2 and vM3
 ```
 
-If we add in the neutral intervals found in Arabic music, it starts to look a lot like the frets of many middle eastern instruments:
+If we add in the neutral intervals found in middle eastern music, it starts to look a lot like the frets of many middle eastern instruments:
 ```
  R---222222---333333---4--------5---666666---777777---R
 ```
