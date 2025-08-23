@@ -4,12 +4,12 @@
     <title>Makam Study</title>
     <style>
         table {
-            width: 30%;
+            width: 40%;
             border-collapse: collapse;
         }
         th, td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 2px 8px;
             text-align: left;
         }
         th {
@@ -18,21 +18,29 @@
     </style>
 </head>
 <body>
-    <h1>Makam</h1>
+    <h1>{{ g.makam["name"] }}</h1>
+    <h3>Tonic: {{ g.makam["tonic"] }}</h3>
     <table>
         <thead>
             <tr>
                 <th>Note Name</th>
                 <th>Comma</th>
-                <th>Interval</th>
+                <th>Absolute Intervals</th>
+                {% for jins in g.makam["ajnas"] %}
+                <th>{{ jins["name"] }} on {{ jins["starting_pitch"] }}</th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>
-            {% for row in g.table_data %}
+            {% for i in range(g.total_commas, -1, -1) %}
             <tr>
-                <td>{{ row.name }}</td>
-                <td>{{ row.comma }}</td>
-                <td>{{ row.interval }}</td>
+                <td>{{ g.note_names[i] }}</td>
+                <td>{{ i }}</td>
+                <td>{{ g.makam["absolute_intervals"][i] }}</td>
+                {% for jins in g.makam["ajnas"] %}
+                <td>{{ jins["intervals"][i] }}</td>
+                {% endfor %}
+
             </tr>
             {% endfor %}
         </tbody>

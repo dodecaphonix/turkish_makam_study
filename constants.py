@@ -1,5 +1,14 @@
 COMMAS_PER_OCTAVE = 53
 
+AJINAS = {
+    "Çârgâh": ["R", "M2", "M3", "4", "5"],  # Major
+    "Bûselik": ["R", "M2", "m3", "4", "5"],  # Minor
+    "Kürdî": ["R", "m2", "m3", "4", "5"],  # Phrygian
+    "Uşşâk": ["R", "vM2", "m3", "4", "5"],  # Minor with microtonal 2
+    "Hicaz": ["R", "^m2", "vM3", "4", "5"],  # Phrygian Dominant with microtonal 2, 3
+    "Rast": ["R", "M2", "vM3", "4", "5"],  # Major with microtonal 3
+}
+
 COMMA_TO_NOTE_NAME = {
     0: 'Kaba Çârgâh',
     4: 'Kaba Nim Hicâz',
@@ -82,4 +91,4 @@ COMMA_TO_INTERVAL = {
 NOTE_NAME_TO_COMMA = {v: k for k, v in COMMA_TO_NOTE_NAME.items()}
 INTERVAL_TO_COMMA = {v: k for k, v in COMMA_TO_INTERVAL.items()}
 
-LARGEST_NOTE_COMMA = max(COMMA_TO_NOTE_NAME.keys())
+TOTAL_COMMAS = max(COMMA_TO_NOTE_NAME.keys())

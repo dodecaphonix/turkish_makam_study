@@ -4,15 +4,22 @@ from flask import (
     render_template,
 )
 
-from makam import generate_test_makam
-
+from constants import (
+    COMMA_TO_NOTE_NAME,
+    TOTAL_COMMAS,
+)
+from makam import hydrate_intervals_for_makam
+from makam_db import MAKAMS
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    g.table_data = generate_test_makam()
+    g.note_names = COMMA_TO_NOTE_NAME
+    g.total_commas = TOTAL_COMMAS
+    # Only one makam hardcoded for now
+    g.makam = hydrate_intervals_for_makam(makam=MAKAMS["makam_Uşşâk"])
     return render_template("index.html")
 
 
