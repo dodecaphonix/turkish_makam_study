@@ -1,8 +1,7 @@
 # TODO: This will be an actual relational DB eventually
 
 MAKAMS = {
-    "makam_Uşşâk": {
-        "name": "Uşşâk",
+    "Uşşâk": {
         "tonic": "Dügâh",
         "ajnas": [
             # TODO: Should starting_pitch be modeled as starting commas/interval

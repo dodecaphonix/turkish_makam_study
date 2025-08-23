@@ -16,10 +16,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    # Only one hardcoded makam for now
+    makam_name = "Uşşâk"
     g.note_names = COMMA_TO_NOTE_NAME
     g.total_commas = TOTAL_COMMAS
-    # Only one makam hardcoded for now
-    g.makam = hydrate_intervals_for_makam(makam=MAKAMS["makam_Uşşâk"])
+    g.makam_name = makam_name
+    g.makam_data = hydrate_intervals_for_makam(makam=MAKAMS[makam_name])
     return render_template("index.html")
 
 

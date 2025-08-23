@@ -18,15 +18,15 @@
     </style>
 </head>
 <body>
-    <h1>{{ g.makam["name"] }}</h1>
-    <h3>Tonic: {{ g.makam["tonic"] }}</h3>
+    <h1>{{ g.makam_name }}</h1>
+    <h3>Tonic: {{ g.makam_data["tonic"] }}</h3>
     <table>
         <thead>
             <tr>
                 <th>Note Name</th>
                 <th>Comma</th>
                 <th>Absolute Intervals</th>
-                {% for jins in g.makam["ajnas"] %}
+                {% for jins in g.makam_data["ajnas"] %}
                 <th>{{ jins["name"] }} on {{ jins["starting_pitch"] }}</th>
                 {% endfor %}
             </tr>
@@ -36,8 +36,8 @@
             <tr>
                 <td>{{ g.note_names[i] }}</td>
                 <td>{{ i }}</td>
-                <td>{{ g.makam["absolute_intervals"][i] }}</td>
-                {% for jins in g.makam["ajnas"] %}
+                <td>{{ g.makam_data["absolute_intervals"][i] }}</td>
+                {% for jins in g.makam_data["ajnas"] %}
                 <td>{{ jins["intervals"][i] }}</td>
                 {% endfor %}
 
