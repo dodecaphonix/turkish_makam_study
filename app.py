@@ -7,8 +7,10 @@ from flask import (
 
 from constants import (
     COMMA_TO_NOTE_NAME,
-    TOTAL_COMMAS,
     COMMAS_OF_FUNDAMENTAL_PITCHES,
+    OUD_NOTE_WIDTHS,
+    OUD_TUNING,
+    TOTAL_COMMAS,
 )
 from interval_calculator import hydrate_intervals_for_makam
 from makam_db import MAKAMS
@@ -25,6 +27,8 @@ def index():
     g.total_commas = TOTAL_COMMAS
     g.makam_name = makam_name
     g.makam_data = hydrate_intervals_for_makam(makam=MAKAMS[makam_name])
+    g.oud_notes = OUD_NOTE_WIDTHS
+    g.oud_tuning = OUD_TUNING
     return render_template("index.html")
 
 
