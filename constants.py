@@ -22,6 +22,7 @@ P5_below = Interval(degree=5, octave_displacement=-1)
 
 JINS_STARTING_INTERVALS = {
     "R": R,
+    "m3": m3,
     "P4": P4,
     "P5": P5,
     "low_P5": P5_below,
