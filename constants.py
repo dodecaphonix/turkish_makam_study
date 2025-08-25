@@ -7,9 +7,12 @@ up_m2 = Interval(degree=2, accidental=-1, comma_displacement=1)
 down_M2 = Interval(degree=2, comma_displacement=-1)
 M2 = Interval(degree=2)
 m3 = Interval(degree=3, accidental=-1)
+up_m3 = Interval(degree=3, accidental=-1, comma_displacement=1)
 down_M3 = Interval(degree=3, comma_displacement=-1)
 M3 = Interval(degree=3)
+up_D4 = Interval(degree=4, accidental=-1, comma_displacement=1)
 P4 = Interval(degree=4)
+down_A4 = Interval(degree=4, accidental=1, comma_displacement=-1)
 P5 = Interval(degree=5)
 M6 = Interval(degree=6)
 down_M7 = Interval(degree=7, comma_displacement=-1)
@@ -31,6 +34,8 @@ TETRACHORDS = {
     "Uşşâk ₄": [R, down_M2, m3, P4],  # Minor - Pythagorean tuning with microtonal maj 2
     "Hicaz ₄": [R, up_m2, down_M3, P4],  # Phrygian Dominant - Just tuning with microtonal min 2
     "Rast ₄": [R, M2, down_M3, P4],  # Major - Just tuning
+    # Less common
+    "Saba ₄": [R, down_M2, m3, up_D4]  # Min b4 = with a vM2 ^D4
 }
 
 PENTACHORDS = {
@@ -40,6 +45,9 @@ PENTACHORDS = {
     "Hüseyni ₅": [R, down_M2, m3, P4, P5],  # Minor - Pythagorean tuning with microtonal maj 2
     "Hicaz ₅": [R, up_m2, down_M3, P4, P5],  # Phrygian Dominant - Just tuning with microtonal min 2
     "Rast ₅": [R, M2, down_M3, P4, P5],  # Major - Just tuning
+    # Less common
+    "Pençgâh ₅": [R, M2, M3, down_A4, P5],  # Lydian - Pythagorean with vA4
+    "Nikriz ₅": [R, M2, up_m3, down_A4, P5],  # Min #4 - with a ^m3  vA4
 }
 
 AJINAS = TETRACHORDS | PENTACHORDS
