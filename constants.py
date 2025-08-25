@@ -1,12 +1,37 @@
-COMMAS_PER_OCTAVE = 53
+from interval import Interval
 
+
+R = Interval(degree=1)
+m2 = Interval(degree=2, accidental=-1)
+up_m2 = Interval(degree=2, accidental=-1, comma_displacement=1)
+down_M2 = Interval(degree=2, comma_displacement=-1)
+M2 = Interval(degree=2)
+m3 = Interval(degree=3, accidental=-1)
+down_M3 = Interval(degree=3, comma_displacement=-1)
+M3 = Interval(degree=3)
+P4 = Interval(degree=4)
+P5 = Interval(degree=5)
+M6 = Interval(degree=6)
+down_M7 = Interval(degree=7, comma_displacement=-1)
+
+P5_below = Interval(degree=5, octave_displacement=-1)
+
+
+JINS_STARTING_INTERVALS = {
+    "R": R,
+    "P4": P4,
+    "P5": P5,
+    "low_P5": P5_below,
+}
+
+# TODO: Define both pentachords and tetrachords E.G. Rast_4, Rast_5
 AJINAS = {
-    "Çârgâh": ["R", "M2", "M3", "4", "5"],  # Major - Pythagorean tuning
-    "Bûselik": ["R", "M2", "m3", "4", "5"],  # Minor - Pythagorean tuning
-    "Kürdî": ["R", "m2", "m3", "4", "5"],  # Phrygian - Pythagorean tuning
-    "Uşşâk": ["R", "vM2", "m3", "4", "5"],  # Minor - Pythagorean tuning with microtonal maj 2
-    "Hicaz": ["R", "^m2", "vM3", "4", "5"],  # Phrygian Dominant - Just tuning with microtonal min 2
-    "Rast": ["R", "M2", "vM3", "4", "5"],  # Major - Just tuning
+    "Çârgâh": [R, M2, M3, P4, P5],  # Major - Pythagorean tuning
+    "Bûselik": [R, M2, m3, P4, P5],  # Minor - Pythagorean tuning
+    "Kürdî": [R, m2, m3, P4, P5],  # Phrygian - Pythagorean tuning
+    "Uşşâk": [R, down_M2, m3, P4, P5],  # Minor - Pythagorean tuning with microtonal maj 2
+    "Hicaz": [R, up_m2, down_M3, P4, P5],  # Phrygian Dominant - Just tuning with microtonal min 2
+    "Rast": [R, M2, down_M3, P4, P5],  # Major - Just tuning
 }
 
 COMMA_TO_NOTE_NAME = {
@@ -61,43 +86,16 @@ COMMA_TO_NOTE_NAME = {
     106: 'Tîz Çârgâh'
 }
 
-COMMA_TO_INTERVAL = {
-    0: "R",
-    4: "m2",
-    5: "^m2",
-    8: "vM2",
-    9: "M2",
-    13: "m3",
-    14: "^m3",
-    17: "vM3",
-    18: "M3",
-    22: "4",
-    23: "^4",
-    26: "D5",
-    27: "A4",
-    30: "v5",
-    31: "5",
-    35: "m6",
-    36: "^m6",
-    39: "vM6",
-    40: "M6",
-    44: "m7",
-    45: "^m7",
-    48: "vM7",
-    49: "M7",
-}
-
-
 NOTE_NAME_TO_COMMA = {v: k for k, v in COMMA_TO_NOTE_NAME.items()}
-INTERVAL_TO_COMMA = {v: k for k, v in COMMA_TO_INTERVAL.items()}
 
 TOTAL_COMMAS = max(COMMA_TO_NOTE_NAME.keys())
 
+COMMAS_PER_OCTAVE = 53
 # This is a just intonation major scale with the 3rd and 7th lowered by a comma
-FUNDAMENTAL_INTERVALS = ["R", "M2", "vM3", "4", "5", "M6", "vM7"]
+FUNDAMENTAL_INTERVALS = [R, M2, down_M3, P4, P5, M6, down_M7]
 # These are the commas of the very accurate 53EDO approximation of the just major scale used in Turkish music
-COMMAS_OF_FUNDAMENTAL_INTERVALS = [k for k, v in COMMA_TO_INTERVAL.items() if v in FUNDAMENTAL_INTERVALS]
-# It we start on Rast, we have one octave of the Cantemir pitch collection
+COMMAS_OF_FUNDAMENTAL_INTERVALS = [interval.commas for interval in FUNDAMENTAL_INTERVALS]
+# It we start on Rast, we have the Cantemir pitch collection
 # See https://www.turkishudlessons.com/pitch-perde for more info
 COMMAS_OF_FUNDAMENTAL_PITCHES = [
     (comma + NOTE_NAME_TO_COMMA["Rast"]) % COMMAS_PER_OCTAVE
