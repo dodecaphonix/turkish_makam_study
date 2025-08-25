@@ -1,35 +1,34 @@
 # TODO: This will be an actual relational DB eventually
 
-# TODO: Deprecate pitch_count in favor of E.G. "name": "Rast_4"
 MAKAMS = {
     "Rast": {
         "tonic": "Rast",
         "ajnas": [
-            {"name": "Rast", "starting_interval": "R", "pitch_count": 5},
-            {"name": "Rast", "starting_interval": "P5", "pitch_count": 4},
-            {"name": "Bûselik", "starting_interval": "P5", "pitch_count": 4},
-            {"name": "Rast", "starting_interval": "low_P5", "pitch_count": 4},
+            {"name": "Rast ₅", "starting_interval": "R"},
+            {"name": "Rast ₄", "starting_interval": "P5"},
+            {"name": "Bûselik ₄", "starting_interval": "P5"},
+            {"name": "Rast ₄", "starting_interval": "low_P5"},
         ]
     },
     "Çârgâh": {
         "tonic": "Çârgâh",
         "ajnas": [
-            {"name": "Çârgâh", "starting_interval": "R", "pitch_count": 5},
-            {"name": "Çârgâh", "starting_interval": "P5", "pitch_count": 4},
+            {"name": "Çârgâh ₅", "starting_interval": "R"},
+            {"name": "Çârgâh ₄", "starting_interval": "P5"},
         ]
     },
     "Uşşâk": {
         "tonic": "Dügâh",
         "ajnas": [
-            {"name": "Uşşâk", "starting_interval": "R", "pitch_count": 4},
-            {"name": "Bûselik", "starting_interval": "P4", "pitch_count": 5},
+            {"name": "Uşşâk ₄", "starting_interval": "R"},
+            {"name": "Bûselik ₅", "starting_interval": "P4"},
         ]
     },
     "Kürdî": {
         "tonic": "Dügâh",
         "ajnas": [
-            {"name": "Kürdî", "starting_interval": "R", "pitch_count": 4},
-            {"name": "Bûselik", "starting_interval": "P4", "pitch_count": 5},
+            {"name": "Kürdî ₄", "starting_interval": "R"},
+            {"name": "Bûselik ₅", "starting_interval": "P4"},
         ]
     },
 }

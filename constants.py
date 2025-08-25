@@ -24,15 +24,25 @@ JINS_STARTING_INTERVALS = {
     "low_P5": P5_below,
 }
 
-# TODO: Define both pentachords and tetrachords E.G. Rast_4, Rast_5
-AJINAS = {
-    "Çârgâh": [R, M2, M3, P4, P5],  # Major - Pythagorean tuning
-    "Bûselik": [R, M2, m3, P4, P5],  # Minor - Pythagorean tuning
-    "Kürdî": [R, m2, m3, P4, P5],  # Phrygian - Pythagorean tuning
-    "Uşşâk": [R, down_M2, m3, P4, P5],  # Minor - Pythagorean tuning with microtonal maj 2
-    "Hicaz": [R, up_m2, down_M3, P4, P5],  # Phrygian Dominant - Just tuning with microtonal min 2
-    "Rast": [R, M2, down_M3, P4, P5],  # Major - Just tuning
+TETRACHORDS = {
+    "Çârgâh ₄": [R, M2, M3, P4],  # Major - Pythagorean tuning
+    "Bûselik ₄": [R, M2, m3, P4],  # Minor - Pythagorean tuning
+    "Kürdî ₄": [R, m2, m3, P4],  # Phrygian - Pythagorean tuning
+    "Uşşâk ₄": [R, down_M2, m3, P4],  # Minor - Pythagorean tuning with microtonal maj 2
+    "Hicaz ₄": [R, up_m2, down_M3, P4],  # Phrygian Dominant - Just tuning with microtonal min 2
+    "Rast ₄": [R, M2, down_M3, P4],  # Major - Just tuning
 }
+
+PENTACHORDS = {
+    "Çârgâh ₅": [R, M2, M3, P4, P5],  # Major - Pythagorean tuning
+    "Bûselik ₅": [R, M2, m3, P4, P5],  # Minor - Pythagorean tuning
+    "Kürdî ₅": [R, m2, m3, P4, P5],  # Phrygian - Pythagorean tuning
+    "Hüseyni ₅": [R, down_M2, m3, P4, P5],  # Minor - Pythagorean tuning with microtonal maj 2
+    "Hicaz ₅": [R, up_m2, down_M3, P4, P5],  # Phrygian Dominant - Just tuning with microtonal min 2
+    "Rast ₅": [R, M2, down_M3, P4, P5],  # Major - Just tuning
+}
+
+AJINAS = TETRACHORDS | PENTACHORDS
 
 COMMA_TO_NOTE_NAME = {
     0: 'Kaba Çârgâh',
