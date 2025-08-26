@@ -27,7 +27,7 @@ def index():
     g.total_commas = TOTAL_COMMAS
     g.makam_name = makam_name
     g.makam_data = hydrate_intervals_for_makam(makam=MAKAMS[makam_name])
-    g.oud_notes = OUD_NOTE_WIDTHS
+    g.oud_note_widths = OUD_NOTE_WIDTHS
     g.oud_tuning = OUD_TUNING
     return render_template("index.html")
 

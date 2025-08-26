@@ -128,7 +128,7 @@ COMMAS_OF_FUNDAMENTAL_PITCHES = [
 ]
 
 # TODO: Simplify this expression and define magic numbers as constants
-OUD_NOTE_WIDTHS = [round(((1 / (2**(i/53))) - (1 / (2**((i+1)/53)))) * 3 * 100, 2) for i in range(31+1)]
+OUD_NOTE_WIDTHS = [round(((1 / (2**(i/53))) - (1 / (2**((i+1)/53)))) * 3 * 100, 2) for i in range(31)]
 OUD_TUNING = [
     NOTE_NAME_TO_COMMA["Gerdâniye"],
     NOTE_NAME_TO_COMMA["Nevâ"],
