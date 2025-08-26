@@ -21,6 +21,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     makam_name = request.args.get('makam', default='Rast', type=str)
+    g.show_oud_commas = request.args.get('show_oud_commas', default=False, type=bool)
     g.all_makams = MAKAMS.keys()
     g.note_names = COMMA_TO_NOTE_NAME
     g.fundamental_pitch_commas = COMMAS_OF_FUNDAMENTAL_PITCHES

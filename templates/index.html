@@ -37,7 +37,7 @@
           background-image: url({{ url_for('static', filename='img/oud_string_gray.png') }});
           background-size: 40px;
           background-position: center;
-          <!-- TODO: Use to toggle commas `border-right: 1px solid black;` -->
+          {% if g.show_oud_commas %} border-right: 1px solid black; {% endif %};
         }
     </style>
 </head>
@@ -51,6 +51,9 @@
           <option value={{ makam }} {% if makam == g.makam_name %} selected {% endif %} >{{ makam }}</option>
         {% endfor %}
       </select>
+      <br>
+      <input type="checkbox" id="show_oud_commas" name="show_oud_commas" value="true" onchange='this.form.submit();' {% if g.show_oud_commas %} checked="checked" {% endif %}; >
+      <label for="show_oud_commas">Show oud commas</label>
     </form>
 
     <div style="padding-bottom: 20px;">
