@@ -3,35 +3,48 @@
 <head>
     <title>Makam Study</title>
     <style>
+        .note-container {
+            max-height: 1000px;
+            overflow-y: auto;
+            width: max-content;
+        }
         table {
-            width: 40%;
             border-collapse: collapse;
         }
         th, td {
+            width: 60px;
+            min-width: 60px;
             border: 1px solid black;
-            padding: 2px 8px;
-            text-align: left;
+            padding: 1px 12px;
+            text-align: center;
         }
         th {
             background-color: #f2f2f2;
         }
+
         form {
             padding-bottom: 20px;
         }
+
         .oud_container {
+          padding-bottom: 20px;
+          width: 1000px;
+        }
+        .oud_fingerboard_container {
           display: grid;
           grid-template-columns:{% for i in g.oud_note_widths %} {{ i }}%{% endfor %};
-          width: 80%;
+          width: 96%;
           border: 1px solid black;
         }
         .oud_open_string_container {
           display: grid;
+          float: left;
           grid-template-columns: auto;
-          width: 2%;
+          width: 3%;
           border-top: 1px solid white;
           border-right: 6px solid black;
         }
-        .oud_container > div, .oud_open_string_container > div {
+        .oud_fingerboard_container > div, .oud_open_string_container > div {
           height: 40px;
           text-align: right;
           background-image: url({{ url_for('static', filename='img/oud_string_gray.png') }});
@@ -55,16 +68,15 @@
       <input type="checkbox" id="show_oud_commas" name="show_oud_commas" value="true" onchange='this.form.submit();' {% if g.show_oud_commas %} checked="checked" {% endif %}; >
       <label for="show_oud_commas">Show oud commas</label>
     </form>
-
-    <div style="padding-bottom: 20px;">
-        <div class="oud_open_string_container" style="float: left;">
+    <div class="oud_container">
+        <div class="oud_open_string_container">
             {% for string in g.oud_tuning %}
             <div style="background-color:{% if g.note_names[string] == g.makam_data['tonic'] %} #ddccff {% elif string % 53 in g.fundamental_pitch_commas %} #f0eeff {% endif %};" >
                 {{ g.makam_data["absolute_intervals"][string] }}
             </div>
             {% endfor %}
         </div>
-            <div class="oud_container">
+            <div class="oud_fingerboard_container">
             {% for string in g.oud_tuning %}
             {% for i in range(string+1, string+1+31) %}
             <div style="background-color:{% if g.note_names[i] == g.makam_data['tonic'] %} #ddccff {% elif i % 53 in g.fundamental_pitch_commas %} #f0eeff {% endif %};" >
@@ -77,7 +89,7 @@
     <table>
         <thead>
             <tr>
-                <th>Note Name</th>
+                <th style="width:120px;" >Note Name</th>
                 <th>Comma</th>
                 <th>Absolute Intervals</th>
                 {% for jins in g.makam_data["ajnas"] %}
@@ -85,18 +97,22 @@
                 {% endfor %}
             </tr>
         </thead>
-        <tbody>
-            {% for i in range(g.total_commas, -1, -1) %}
-            <tr style="background-color:{% if g.note_names[i] == g.makam_data['tonic'] %} #ddccff {% elif i % 53 in g.fundamental_pitch_commas %} #f0eeff {% endif %};" >
-                <td>{{ g.note_names[i] }}</td>
-                <td>{{ i }}</td>
-                <td>{{ g.makam_data["absolute_intervals"][i] }}</td>
-                {% for jins in g.makam_data["ajnas"] %}
-                <td>{{ jins["intervals"][i] }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
     </table>
+    <div class="note-container">
+        <table>
+            <tbody>
+                {% for i in range(g.total_commas, -1, -1) %}
+                <tr style="background-color:{% if g.note_names[i] == g.makam_data['tonic'] %} #ddccff {% elif i % 53 in g.fundamental_pitch_commas %} #f0eeff {% endif %};" >
+                    <td style="width:120px;" >{{ g.note_names[i] }}</td>
+                    <td>{{ i }}</td>
+                    <td>{{ g.makam_data["absolute_intervals"][i] }}</td>
+                    {% for jins in g.makam_data["ajnas"] %}
+                    <td>{{ jins["intervals"][i] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
