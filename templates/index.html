@@ -12,8 +12,8 @@
             border-collapse: collapse;
         }
         th, td {
-            width: 60px;
-            min-width: 60px;
+            width: 80px;
+            min-width: 80px;
             border: 1px solid black;
             padding: 1px 12px;
             text-align: center;
@@ -93,7 +93,7 @@
                 <th>Comma</th>
                 <th>Absolute Intervals</th>
                 {% for jins in g.makam_data["ajnas"] %}
-                <th>{{ jins["name"] }} on {{ jins["starting_pitch"] }}</th>
+                <th>{{ jins["name"] }}<br>on {{ jins["starting_pitch"] }}</th>
                 {% endfor %}
             </tr>
         </thead>
