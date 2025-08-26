@@ -11,7 +11,9 @@ up_m3 = Interval(degree=3, accidental=-1, comma_displacement=1)
 down_M3 = Interval(degree=3, comma_displacement=-1)
 M3 = Interval(degree=3)
 up_D4 = Interval(degree=4, accidental=-1, comma_displacement=1)
+up_up_D4 = Interval(degree=4, accidental=-1, comma_displacement=2)
 P4 = Interval(degree=4)
+up_P4 = Interval(degree=4, comma_displacement=1)
 down_A4 = Interval(degree=4, accidental=1, comma_displacement=-1)
 P5 = Interval(degree=5)
 M6 = Interval(degree=6)
@@ -49,6 +51,10 @@ PENTACHORDS = {
     # Less common
     "Pençgâh ₅": [R, M2, M3, down_A4, P5],  # Lydian - Pythagorean with vA4
     "Nikriz ₅": [R, M2, up_m3, down_A4, P5],  # Min #4 - with a ^m3  vA4
+    # Ajinas that start from a microtone
+    "Segah ₅": [R, up_m2, up_m3, P4, P5],  # Min - with a ^m2 ^m3
+    "Ferahnak ₅": [R, up_m2, up_m3, up_P4, P5],  # Min - with a ^m2 ^m3 ^P4
+    "Hüzzam ₅": [R, up_m2, up_m3, up_up_D4, P5],  # Min - with a ^m2 ^m3 ^^D4
 }
 
 AJINAS = TETRACHORDS | PENTACHORDS
