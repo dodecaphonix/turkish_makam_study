@@ -31,6 +31,22 @@ MAKAMS = {
             {"name": "Bûselik ₅", "starting_interval": "P4"},
         ]
     },
+    # https://islamansiklopedisi.org.tr/hicaz--musiki
+    "Hicaz": {
+        "tonic": "Dügâh",
+        "ajnas": [
+            {"name": "Hicaz ₄", "starting_interval": "R"},
+            {"name": "Rast ₅", "starting_interval": "P4"},
+        ]
+    },
+    # https://islamansiklopedisi.org.tr/hicazkar
+    "Hicazkar": {
+        "tonic": "Rast",
+        "ajnas": [
+            {"name": "Hicaz ₅", "starting_interval": "R"},
+            {"name": "Hicaz ₄", "starting_interval": "P5"},
+        ]
+    },
     # https://en.wikipedia.org/wiki/List_of_Turkish_makams
     "Nikriz": {
         "tonic": "Rast",
